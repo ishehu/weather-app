@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WeatherConditions from "./components/weather-condition/weather-conditions.component.jsx";
 import getCity from "./components/locations.js";
 import getWeather from "./components/conditions";
@@ -9,8 +9,22 @@ const App = () => {
   const [locationData, setLocationData] = useState({});
   const [locationConditions, setLocationConditions] = useState({});
 
+  useEffect(() => {
+    if (localStorage.getItem("city")) {
+      getCity(localStorage.getItem("city"))
+        .then((data) => {
+          setLocationData(data);
+          getWeather(data.Key)
+            .then((data) => setLocationConditions(data))
+            .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.setItem("city", location);
     getCity(location)
       .then((data) => {
         setLocationData(data);
@@ -20,8 +34,7 @@ const App = () => {
       })
       .catch((err) => console.log(err));
   };
-  console.log("location data", locationData);
-  console.log("location conditions", locationConditions);
+
   return (
     <div className="App">
       <div className="container mx-5 mx-auto">

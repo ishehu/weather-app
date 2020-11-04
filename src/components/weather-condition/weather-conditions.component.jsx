@@ -6,13 +6,13 @@ const WeatherConditions = ({ locationConditions, locationData }) => {
       {locationConditions.IsDayTime ? (
         <img
           src={process.env.PUBLIC_URL + `/images/day.svg`}
-          alt="is day time image"
+          alt="is day time"
           className="time card-img-top"
         />
       ) : (
         <img
           src={process.env.PUBLIC_URL + `/images/night.svg`}
-          alt="is night time image"
+          alt="is night time"
           className="time card-img-top"
         />
       )}
