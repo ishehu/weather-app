@@ -1,4 +1,4 @@
-[Weather App](https://alex-dunarentu.github.io/tinder-clone/) made with React.
+[Weather App](https://alex-dunarentu.github.io/weather-app/) made with React.
 
 ## Available Scripts
 
