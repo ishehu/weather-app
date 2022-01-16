@@ -27,6 +27,7 @@ const WeatherConditions = ({ locationConditions, locationData }) => {
       </div>
       <div className="text-muted text-uppercase text-center details">
         <h5 className="my-3">{locationData.LocalizedName}</h5>
+        <h7 className="my-3">{locationData.Country.LocalizedName}</h7>
         <div className="my-3">{locationConditions.WeatherText}</div>
         <div className="display-4 my-4">
           <span>{locationConditions.Temperature.Metric.Value}</span>

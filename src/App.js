@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import WeatherConditions from "./components/weather-condition/weather-conditions.component.jsx";
-import getCity from "./components/locations.js";
+import WeatherConditions from "./components/weather-condition/weather-conditions.component";
+import getCity from "./components/locations";
 import getWeather from "./components/conditions";
 import "./App.css";
 
@@ -38,18 +38,19 @@ const App = () => {
   return (
     <div className="App">
       <div className="container mx-5 mx-auto">
-        <h1 className="text-muted text-center my-4">Weather App</h1>
+        <h1 className="text-muted text-center my-4">myWeather app</h1>
         <form
           className="change-location my-4 text-center text-muted"
           onSubmit={handleSubmit}
         >
           <label htmlFor="city">
-            Enter a location for weather information:
+            Enter a city name for weather information:
           </label>
           <input
             required
             type="text"
             name="city"
+            placeholder="city name here ..............."
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             className="form-control p-4"
